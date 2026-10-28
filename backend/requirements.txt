@@ -1,5 +1,0 @@
-fastapi[standard]
-hypercorn
-sqlalchemy
-pydantic
-
