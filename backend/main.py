@@ -40,5 +40,4 @@ def add_fruit(fruit: str):
 
 @app.delete("/fruits")
 def empty_the_list():
-    for i in range(len(fruit_list)):
-        del fruit_list[i]
+    fruit_list = []
