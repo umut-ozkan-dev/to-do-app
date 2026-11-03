@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from psycopg2 
 
 from models import Fruit
 
