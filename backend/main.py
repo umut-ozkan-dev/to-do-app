@@ -31,13 +31,25 @@ def get_individual_fruit(id: int):
 
 
 @app.post("/fruits")
-def add_fruit(id: int, name: str, price: float):
-    fruits.append(Fruit(id=id, name=name, price=price))
+def add_fruit(fruit: Fruit):
+    fruits.append(fruit)
+    return "Fruit added succesfully"
 
 
 @app.delete("/fruits")
 def delete_fruit(id: int):
-    for fruit in fruits:
-        if fruit.id == id:
-            del fruits[fruits.index(fruit)]
-    raise HTTPException(status_code=404)
+    for i in range(len(fruits)):
+        if fruits[i].id == id:
+            del fruits[i]
+            return "Fruit succesfully deleted"
+    return HTTPException(status_code=404)
+
+
+@app.put("/fruits")
+def update_fruit(id: int, fruit: Fruit):
+    for i in range(len(fruits)):
+        if fruits[i].id == id:
+            fruits[i] = fruit
+            return "fruit updated succesfully"
+
+    return HTTPException(status_code=404)
